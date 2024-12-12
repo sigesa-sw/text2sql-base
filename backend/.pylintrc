@@ -1,0 +1,9 @@
+[FORMAT]
+max-line-length=100
+
+# Good variable names which should always be accepted
+good-names=i,j,k,ex,Run,_,id,pk
+
+[MASTER]
+ignore=CVS,migrations
+init-hook="from pylint.config import find_pylintrc; import os, sys; sys.path.append(os.path.dirname(find_pylintrc()))"

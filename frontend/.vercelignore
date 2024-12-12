@@ -1,0 +1,15 @@
+node_modules
+.cache
+.output
+/build/
+/public/build
+/api/index.js
+\*.backup
+env
+env2
+.env
+.env.example
+LICENSE
+next-env.d.ts
+.next
+newenv

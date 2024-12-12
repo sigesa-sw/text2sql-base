@@ -1,0 +1,69 @@
+[build-system]
+requires = ["flit_core >=3.2,<4"]
+build-backend = "flit_core.buildapi"
+
+[project]
+name = "Text2SQL"
+version = "0.7.5"
+authors = [
+  { name="Darío Martínez", email="dmartinez@sigesa.com" },
+]
+
+description = "Generate SQL queries from natural language"
+readme = "README.md"
+requires-python = ">=3.9"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+    "requests", "tabulate", "pandas", "sqlparse", "kaleido", "flask", "flask-sock", "flasgger", "sqlalchemy"
+]
+
+[project.optional-dependencies]
+postgres = ["psycopg2-binary", "db-dtypes"]
+mysql = ["PyMySQL"]
+clickhouse = ["clickhouse_connect"]
+bigquery = ["google-cloud-bigquery"]
+snowflake = ["snowflake-connector-python"]
+duckdb = ["duckdb"]
+google = ["google-generativeai", "google-cloud-aiplatform"]
+all = ["psycopg2-binary", "db-dtypes", "PyMySQL", "google-cloud-bigquery", "snowflake-connector-python", "duckdb", "openai", "qianfan", "mistralai>=1.0.0", "chromadb", "anthropic", "zhipuai", "marqo", "google-generativeai", "google-cloud-aiplatform", "qdrant-client", "fastembed", "ollama", "httpx", "opensearch-py", "opensearch-dsl", "transformers", "pinecone-client", "pymilvus[model]","weaviate-client", "azure-search-documents", "azure-identity", "azure-common", "faiss-cpu", "boto", "boto3", "botocore", "langchain_core", "langchain_postgres", "xinference-client"]
+test = ["tox"]
+chromadb = ["chromadb"]
+openai = ["openai"]
+qianfan = ["qianfan"]
+mistralai = ["mistralai>=1.0.0"]
+anthropic = ["anthropic"]
+gemini = ["google-generativeai"]
+marqo = ["marqo"]
+zhipuai = ["zhipuai"]
+ollama = ["ollama", "httpx"]
+qdrant = ["qdrant-client", "fastembed"]
+vllm = ["vllm"]
+pinecone = ["pinecone-client", "fastembed"]
+opensearch = ["opensearch-py", "opensearch-dsl"]
+hf = ["transformers"]
+milvus = ["pymilvus[model]"]
+bedrock = ["boto3", "botocore"]
+weaviate = ["weaviate-client"]
+azuresearch = ["azure-search-documents", "azure-identity", "azure-common", "fastembed"]
+pgvector = ["langchain-postgres>=0.0.12"]
+faiss-cpu = ["faiss-cpu"]
+faiss-gpu = ["faiss-gpu"]
+xinference-client = ["xinference-client"]
+
+[tool.pylint]
+disable = [
+    "C0114",  # missing-module-docstring
+    "C0115",  # missing-class-docstring
+    "C0116",  # missing-function-docstring
+    "C0111",  # missing-docstring
+    "C0103",  # invalid-name
+    "R0903",  # too-few-public-methods
+    "W1114",  # arguments-out-of-order
+]
+max-line-length = 88
+ignore-patterns = ["^\\.#"]
+good-names = ["i", "j", "k", "ex", "Run", "_", "pk", "id"]
